@@ -1,0 +1,308 @@
+/* Finura Minimalist & High-Contrast Design System */
+
+:root {
+  /* Font Families */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Theme Transitions */
+  --theme-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.15s ease;
+
+  /* Light Theme Variables (Clean, High Contrast) */
+  --bg-primary: #fafafa;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --border-color: #e4e4e7; /* Slate 200 */
+  
+  --text-primary: #09090b; /* Zinc 950 */
+  --text-secondary: #3f3f46; /* Zinc 700 */
+  --text-muted: #71717a; /* Zinc 500 */
+
+  --accent-primary: #18181b; /* Dark Zinc */
+  --accent-primary-rgb: 24, 24, 27;
+  --accent-secondary: #0ea5e9; /* Sky */
+  --accent-success: #10b981; /* Emerald */
+  --accent-danger: #ef4444; /* Rose */
+  --accent-warning: #f59e0b; /* Amber */
+  --accent-info: #3b82f6; /* Blue */
+
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Dark Theme Variables (Minimalist Vercel / Linear Style) */
+html[data-theme="dark"] {
+  --bg-primary: #09090b; /* Pitch Dark Zinc */
+  --bg-secondary: #121214; /* Off-black */
+  --bg-card: #18181b; /* Solid Dark Grey Card */
+  --border-color: #27272a; /* Zinc 800 */
+
+  --text-primary: #fafafa; /* Bright Off-white */
+  --text-secondary: #d4d4d8; /* Zinc 300 - High Contrast */
+  --text-muted: #a1a1aa; /* Zinc 400 - High Contrast */
+
+  --accent-primary: #ffffff; /* Clean White */
+  --accent-primary-rgb: 255, 255, 255;
+  --accent-secondary: #38bdf8; /* Sky Light */
+
+  --card-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Force Bootstrap Text Colors to Respect Theme Variables */
+.text-muted {
+  color: var(--text-muted) !important;
+}
+.text-secondary {
+  color: var(--text-secondary) !important;
+}
+.text-primary, h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+}
+
+/* CSS Resets & Base Configuration */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: var(--theme-transition);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Clean Minimalist Buttons */
+.btn {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.88rem;
+  transition: var(--theme-transition);
+  border: 1px solid var(--border-color);
+}
+
+.btn-primary {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  color: var(--bg-primary) !important;
+}
+.btn-primary:hover, .btn-primary:focus {
+  opacity: 0.9;
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: none;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+.btn-outline-primary:hover {
+  background: var(--border-color);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Solid Minimalist Cards */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: var(--theme-transition);
+}
+.glass-card:hover {
+  border-color: var(--text-muted);
+}
+
+/* Custom Table Styles */
+.custom-table {
+  color: var(--text-primary) !important;
+}
+.custom-table th {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  background-color: var(--bg-primary) !important;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color) !important;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 0.8rem 1rem;
+}
+.custom-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border-color) !important;
+  vertical-align: middle;
+}
+.custom-table tbody tr {
+  transition: var(--theme-transition);
+}
+.custom-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+/* Modern Input Customization */
+.form-control, .form-select {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary) !important;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+  transition: var(--theme-transition);
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--bg-secondary);
+  border-color: var(--text-muted);
+  color: var(--text-primary) !important;
+  box-shadow: none;
+}
+html[data-theme="dark"] .form-control, 
+html[data-theme="dark"] .form-select {
+  background-color: #121214;
+}
+
+/* Sidebar Custom Styling */
+.sidebar-wrapper {
+  min-width: 240px;
+  max-width: 240px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  transition: var(--theme-transition);
+  z-index: 100;
+}
+.sidebar-link {
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.7rem 1.25rem;
+  color: var(--text-secondary) !important;
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: 6px;
+  margin: 0.15rem 0.75rem;
+  font-size: 0.9rem;
+  transition: var(--theme-transition);
+}
+.sidebar-link:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary) !important;
+}
+.sidebar-link.active {
+  background-color: var(--border-color);
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+/* Navbar Premium Look */
+.navbar-custom {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.5rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  transition: var(--theme-transition);
+}
+
+/* Dashboard summary widgets */
+.metric-card {
+  border-left: 2px solid var(--accent-primary);
+}
+.metric-card.income {
+  border-left-color: var(--accent-success);
+}
+.metric-card.expense {
+  border-left-color: var(--accent-danger);
+}
+.metric-card.balance {
+  border-left-color: var(--accent-info);
+}
+.metric-card.savings {
+  border-left-color: var(--accent-secondary);
+}
+
+/* Badge Badging */
+.badge-category {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+}
+
+/* Chatbot Specific Styles */
+.chat-container {
+  height: 400px;
+  overflow-y: auto;
+  padding: 0.8rem;
+  background: var(--bg-primary);
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+.chat-message {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+.chat-message.user {
+  justify-content: flex-end;
+}
+.chat-bubble {
+  max-width: 80%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.chat-message.user .chat-bubble {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+}
+.chat-message.ai .chat-bubble {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Micro-animations */
+.hover-grow {
+  transition: var(--theme-transition);
+}
+.hover-grow:hover {
+  transform: translateY(-1px);
+}
+.pulse-glow {
+  box-shadow: none !important;
+}
